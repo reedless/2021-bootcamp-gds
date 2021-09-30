@@ -2,26 +2,22 @@ version: '3.0'
 
 services:
   frontend:
-    build: ./frontend
+    image: ghcr.io/reedless/bootcamp-gds-frontend:eb83a4010b7f1fe49bff4afcef83aefd56579f8a
     command: "npm start"
     environment:
       NODE_ENV: development
       APP_URL: http://localhost:3000
       API_URL: http://backend:3001
-    volumes:
-      - ./frontend/src:/home/node/app/src
     ports:
       - 3000:3000
   
   backend:
-    build: ./backend
+    image: ghcr.io/reedless/bootcamp-gds-backend:eb83a4010b7f1fe49bff4afcef83aefd56579f8a
     command: "npm start"
     environment:
       NODE_ENV: development
       APP_URL: http://localhost:3000
       API_URL: http://localhost:3001
       PORT: 3001
-    volumes:
-      - ./backend/src:/home/node/app/src
     ports:
       - 3001:3001
