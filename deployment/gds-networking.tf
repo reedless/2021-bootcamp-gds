@@ -2,6 +2,7 @@
   DEFINE VPC, Subnets, IGW
   1. We will not use NAT Gateway because it costs money
 ******************************************************************/
+/*
 resource "aws_vpc" "gds_vpc" {
   cidr_block = "10.0.0.0/16"
 
@@ -57,13 +58,14 @@ resource "aws_internet_gateway" "gds_igw" {
     Name = "gds_vpc_igw"
   }
 }
+*/
 
 /******************************************************************
   CREATION of Routes
 ******************************************************************/
 /*
 Route Table: Internet Access for Public Subnets
-*/
+
 resource "aws_route_table" "route_table_public_az" {
   vpc_id = aws_vpc.gds_vpc.id
   
@@ -89,13 +91,14 @@ resource "aws_route_table_association" "route_public_az2_association" {
   subnet_id = aws_subnet.public_subnet_2.id
   route_table_id = aws_route_table.route_table_public_az.id
 }
+*/
 
 /******************************************************************
   CREATION of Security Groups
 ******************************************************************/
 /*
 Allow All Security Group
-*/
+
 resource "aws_security_group" "allow_all" {
   name        = "allow_all"
   description = "Super Permissive Security Group"
@@ -130,3 +133,4 @@ resource "aws_security_group_rule" "allow_all_egress" {
   ]
   description = "Allows all egress"
 }
+*/

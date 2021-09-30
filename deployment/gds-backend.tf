@@ -1,6 +1,7 @@
 /******************************************************************
   EC2 for Backend Services
 ******************************************************************/
+/*
 resource "aws_instance" "gds_backend_ec2" {
   ami = "ami-082105f875acab993"
   instance_type =  "t2.micro"
@@ -25,6 +26,7 @@ resource "aws_instance" "gds_backend_ec2" {
   EOF
   )
 }
+*/
 
 output "backend_url" {
   value = aws_instance.gds_backend_ec2.public_ip

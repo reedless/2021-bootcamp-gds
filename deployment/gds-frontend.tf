@@ -3,7 +3,7 @@
 ******************************************************************/
 /*
 S3 Bucket for Frontend Webpage
-*/
+
 // Random ID
 resource "random_id" "react_frontend_id" {
   byte_length = 8
@@ -33,6 +33,7 @@ resource "aws_s3_bucket" "react_frontend" {
 }
   EOF
 }
+*/
 
 // Content Type Setting
 locals {
@@ -43,7 +44,7 @@ locals {
     "svg" = "image/svg+xml"
   }
 }
-
+/*
 // React Frontend Non-JavaScript
 resource "aws_s3_bucket_object" "react_frontend_build" {
   for_each = {
@@ -69,7 +70,7 @@ resource "aws_s3_bucket_object" "react_frontend_build_js" {
   etag    = md5(replace(file("../frontend/build/${each.value}"), "$${TF_ENDPOINT_INPUT}", "http://replaceme.com/api"))
   content_type = "text/html"
 }
-
+*/
 // Frontend URL
 output "react_url" {
   value = aws_s3_bucket.react_frontend.website_endpoint
