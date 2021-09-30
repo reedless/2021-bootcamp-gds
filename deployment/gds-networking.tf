@@ -114,7 +114,7 @@ resource "aws_security_group_rule" "allow_all_ingress" {
   to_port           = 0
   protocol          = "all"
   cidr_blocks = [
-    "116.89.41.13/32"
+    "115.66.98.190/32"
   ]
   description = "Allows all ingress"
 }
